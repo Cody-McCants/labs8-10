@@ -1,0 +1,22 @@
+<div>
+    <% if(rs.length > 0) { %>
+    <!--   tr is a row, td is a cell        -->
+    <TABLE BORDER="3" CELLSPACING="1" CELLPADDING="1">
+        <CAPTION>UserJobView</CAPTION>
+        <TR> <TD ALIGN = "center"> Name </TD>
+            <TD ALIGN = "center"> Company  </TD>
+            <TD ALIGN = "center"> Job Description </TD>
+        </TR>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <TD> <%= rs[i].FirstName %> <%= rs[i].LastName %> </TD>
+            <TD>  <%= rs[i].company %> </TD>
+            <TD>  <%= rs[i].profile %> </TD>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No Results Found
+    <% } %>
+</div>
+

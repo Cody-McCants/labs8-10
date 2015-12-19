@@ -1,0 +1,16 @@
+<% include ../partials/header.ejs %>
+
+<h1>Update Address for <%= account_info.Fname %> <%= account_info.Lname %></h1>
+<form action="./save_new_address" class="col-md-4">
+    <select id="account_id" name="account_id" class="form-control">
+        <% addressResults.forEach(function(entry) { %>
+        <% var address = entry.Fname + " " + entry.Lname %>
+        <option value="<%= entry.account_id %>"><%= address %></option>
+        <% }); %>
+    </select>
+
+    <br /><br /><label for="New Address">New Address</label> <br /><input type="text" id="address" name="address" /><br />
+    <br /><input type="submit" class="btn btn-primary" />
+
+</form>
+<% include ../partials/footer.ejs %>

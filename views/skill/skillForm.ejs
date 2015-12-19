@@ -1,0 +1,17 @@
+<% include ../partials/header.ejs %>
+<h1>Update description for </h1>
+<form action="./saveUpdate/" class="col-md-4">
+
+    <select id="skill_name" name="skill_name" class="form-control">
+        <% skillResults.forEach(function(entry) { %>
+        <% var skill_name = entry.name %>
+        <option value="<%= entry.name %>"><%= skill_name %></option>
+        <% }); %>
+    </select>
+
+
+    <br /><br /><label for="New Description">New Description</label> <br /><input type="text" id="description" name="description" /><br />
+    <br /><input type="submit" class="btn btn-primary" />
+
+</form>
+<% include ../partials/footer.ejs %>

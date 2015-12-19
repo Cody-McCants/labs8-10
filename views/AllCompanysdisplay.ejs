@@ -1,0 +1,19 @@
+    <div>
+    <% if(rs.length > 0) { %>
+        <table border="1">
+            <tr><th>Name</th></tr>
+            <% for (var i=0; rs.length > i; i++) { %>
+                <tr>
+                 <td><a href="/companys/?c_id=<%= rs[i].c_id %>"> <%= rs[i].name %></a></td>
+                </tr>
+            <% } %>
+        </table>
+    <% } else { %>
+         No companys are entered into the Company database table.
+    <% } %>
+    </div>
+
+    <div style="margin-top:10px;">
+        <a href="/companys/create">Create New Company</a>
+    </div>
+

@@ -1,0 +1,17 @@
+<% include ../partials/header.ejs %>
+<h1>Update address for </h1>
+<form action="./saveUpdate/" class="col-md-4">
+
+    <select id="name" name="name" class="form-control">
+        <% addressResults.forEach(function(entry) { %>
+        <% var name = entry.name %>
+        <option value="<%= entry.name %>"><%= name %></option>
+        <% }); %>
+    </select>
+
+
+    <br /><br /><label for="New Address">New Address</label> <br /><input type="text" id="address" name="address" /><br />
+    <br /><input type="submit" class="btn btn-primary" />
+
+</form>
+<% include ../partials/footer.ejs %>

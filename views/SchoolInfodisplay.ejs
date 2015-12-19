@@ -1,0 +1,11 @@
+<% if(rs.length > 0) { %>
+    School: <%= rs[0].name %> <br />
+    Address: <%= rs[0].address %>
+<% } else { %>
+    No school matched this school name: <%= school_name %>.
+<% } %>
+
+<br /><a href="/schools/update?name=<%= school_name %>">Update the address for this school</a>
+<br /><a href="/schools/delete_school?name=<%= school_name %>">Delete this school</a>
+
+

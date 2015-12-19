@@ -1,0 +1,18 @@
+<div>
+    <% if(rs.length > 0) { %>
+    <!--   tr is a row, td is a cell        -->
+    <TABLE BORDER="3" CELLSPACING="1" CELLPADDING="1">
+        <CAPTION>Company Average GPA</CAPTION>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <TD ALIGN = "center"> <%= rs[i].company %> </TD>
+            <TD ALIGN = "center"> <%= rs[i].avgGPA %> </TD>
+
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No Results Found
+    <% } %>
+</div>
+

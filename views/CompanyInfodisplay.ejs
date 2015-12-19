@@ -1,0 +1,11 @@
+<% if(rs.length > 0) { %>
+<h1>Company Info</h1>
+    Name: <%= rs[0].name %> <br />
+    Address: <%= rs[0].address %>
+<% } else { %>
+    No company matched this company id <%= company_id %>.
+<% } %>
+
+<br /><a href="/companys/update?company_id=<%= company_id %>">Update the address for this company</a>
+<br /><a href="/companys/delete_company?company_id=<%= company_id %>">Delete this company</a>
+

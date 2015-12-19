@@ -1,0 +1,11 @@
+<h1>Skill</h1>
+<% if(rs.length > 0) { %>
+    Skill: <%= rs[0].name %><br />
+    Description: <%= rs[0].description %><br />
+
+    <br /><a href="/skills/update?skill_id=<%= skill_id %>">Update the description for this skill</a>
+    <br /><a href="/skills/delete_skill?skill_id=<%= skill_id %>">Delete this skill</a>
+
+<% } else { %>
+    No skill matched this skill id <%= skill_id %>.
+<% } %>
