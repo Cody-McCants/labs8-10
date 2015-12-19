@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -26,8 +27,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({secret: 'lab11'}));
 
 app.use('/', routes);
+app.use(function(req, res, next) {
+    if(req.session.account == undefined) { //check if user is authenticated yet
+        res.redirect('/login'); // they aren't so ask them to login
+    }
+    else {
+        next(); //else proceed
+    }
+});
 app.use('/users', users);
 app.use('/user', user);
 app.use('/accounts', accounts);

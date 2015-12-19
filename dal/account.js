@@ -16,7 +16,7 @@ exports.GetAll = function(callback) {
             callback(false, result);
         }
     );
-}
+};
 
 exports.GetByID = function(account_id, callback) {
     console.log(account_id);
@@ -32,7 +32,7 @@ exports.GetByID = function(account_id, callback) {
             callback(false, result);
         }
     );
-}
+};
 
 /* NOTE: Just like functions in other languages the parameters sent to a function do not need to have the same names
  as the function definition. In this case, I'm sending the "req" parameter from the router to exports.Insert(),
@@ -96,7 +96,7 @@ exports.Insert = function(account_info, callback) {
             callback(false, result);
         }
     );
-}
+};
 
 exports.GetAddress = function(account_id, callback){
     console.log(account_id);
@@ -106,7 +106,7 @@ exports.GetAddress = function(account_id, callback){
     connection.query(query, function(err, result){
         callback(err, result);
     })
-}
+};
 
 exports.AddAddress = function(info, callback) {
     console.log(info);
@@ -121,7 +121,7 @@ exports.AddAddress = function(info, callback) {
     connection.query(query, query_data, function(err, result){
         callback(err, result);
     });
-}
+};
 
 exports.DeleteAccount = function(info, callback) {
     console.log(info);
@@ -136,8 +136,22 @@ exports.DeleteAccount = function(info, callback) {
     connection.query(query, query_data, function (err, result) {
         callback(err, result);
     });
-}
+};
 
-
+exports.GetByEmail = function(email, callback) {
+    var query = 'CALL Account_GetByEmail(?)';
+    var query_data = [email];
+    connection.query(query, query_data, function(err, result) {
+        if(err){
+            callback(err, null);
+        }
+    else if(result[0].length == 1) {
+ callback(err, result[0][0]);
+ }
+ else {
+ callback(err, null);
+ }
+ });
+ };
 
 
